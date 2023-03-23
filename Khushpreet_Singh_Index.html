@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>My Schedule</title>
+	<style>
+		.active {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body onload="myFunction()">
+	<h1>My Schedule</h1>
+	<table>
+		<tr>
+			<th>Time</th>
+			<th>Monday</th>
+			<th>Tuesday</th>
+			<th>Wednesday</th>
+			<th>Thursday</th>
+			<th>Friday</th>
+		</tr>
+		<tr>
+			<td>9:00 AM</td>
+			<td>Math</td>
+			<td>History</td>
+			<td>English</td>
+			<td>Science</td>
+			<td>PE</td>
+		</tr>
+		<tr>
+			<td>10:00 AM</td>
+			<td>Science</td>
+			<td>PE</td>
+			<td>Math</td>
+			<td>History</td>
+			<td>English</td>
+		</tr>
+		<tr>
+			<td>11:00 AM</td>
+			<td>English</td>
+			<td>Science</td>
+			<td>PE</td>
+			<td>Math</td>
+			<td>History</td>
+		</tr>
+	</table>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		// load event
+		function myFunction() {
+			alert("Page loaded.");
+		}
+
+		// click events
+		$("td").click(function() {
+			$(this).toggleClass("active");
+		});
+
+		$("h1").click(function() {
+			$(this).css("color", "red");
+		});
+
+		// mouse events
+		$("td").mouseover(function() {
+			$(this).css("font-weight", "bold");
+		});
+
+		$("td").mouseleave(function() {
+			$(this).css("font-weight", "normal");
+		});
+
+		// key events
+		$(document).keypress(function(event) {
+			if (event.which === 97) { // 'a' key
+				alert("You pressed the 'a' key.");
+			}
+		});
+
+		// other event
+		$("table").on("dblclick", function() {
+			$(this).css("background-color", "gray");
+		});
+	</script>
+</body>
+</html>
