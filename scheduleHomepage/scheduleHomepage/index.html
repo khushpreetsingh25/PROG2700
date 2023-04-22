@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Class Schedule</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link href="styles.css" rel="stylesheet">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous" defer></script>
+	<script src="schedule.js" defer></script>
+	<script src="edit.js" defer></script>
+</head>
+
+<body>
+
+	<div class="container">
+		<h1>Course List</h1>
+		<div class="form-group">
+		  <label for="course-dropdown">Select a Course:</label>
+		  <select id="course-dropdown" class="form-control">
+			<!-- dynamically populated options go here -->
+		  </select>
+		</div>
+		<button id="edit-button" class="btn btn-primary" disabled>Edit</button>
+	  </div>
+	
+	  <!-- Bootstrap JS -->
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
+	  <script>
+		// sample course data
+		const courses = [
+		  {id: 1, name: 'PROG'},
+		  {id: 2, name: 'OSYS'},
+		  {id: 3, name: 'SAAD'}
+		];
+	
+		// populate dropdown with courses
+		const dropdown = document.getElementById('course-dropdown');
+		courses.forEach(course => {
+		  const option = document.createElement('option');
+		  option.value = course.id;
+		  option.text = course.name;
+		  dropdown.appendChild(option);
+		});
+	
+		// handle dropdown change
+		dropdown.addEventListener('change', () => {
+		  const courseId = parseInt(dropdown.value);
+		  const selectedCourse = courses.find(course => course.id === courseId);
+		  if (selectedCourse) {
+			// enable edit button and show selected course in form
+			document.getElementById('edit-button').disabled = false;
+			// replace this with your own logic to display the course data in a form
+			console.log(selectedCourse);
+		  } else {
+			// disable edit button if no course is selected
+			document.getElementById('edit-button').disabled = true;
+		  }
+		});
+	
+		// handle edit button click
+		document.getElementById('edit-button').addEventListener('click', () => {
+		  const courseId = parseInt(dropdown.value);
+		  const selectedCourse = courses.find(course => course.id === courseId);
+		  // replace this with your own logic to edit the course data
+		  console.log(`Editing course ${selectedCourse.name}`);
+		});
+	  </script>
+
+<p>Choose your monster's colors:</p>
+
+<div>
+    <input type="color" id="head" name="head"
+           value="#e66465">
+    <label for="head">Head</label>
+</div>
+
+<div>
+    <input type="color" id="body" name="body"
+            value="#f6b73c">
+    <label for="body">Body</label>
+</div>
+
+	<h1 class="text-center ">Winter 2023 Schedule</h1>
+	<div class="container-sm">
+		<table summary="ITPR Year 1 Fall Schedule" class="table table-bordered table-sched" id="sched">
+			<thead>
+				<caption>ITPR Year 1 Fall Schedule</caption>
+				<tr class="table-primary">
+					<th scope="col">Time</th>
+					<th scope="col">Monday</th>
+					<th scope="col">Tuesday</th>
+					<th scope="col">Wednesday</th>
+					<th scope="col">Thursday</th>
+					<th scope="col">Friday</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">08:30 AM</th>
+					<td>Prog 1700</td>
+					<td>Prog 1700</td>
+					<td></td>
+					<td>Prog 1700</td>
+					<td>Web 1000</td>
+				</tr>
+
+				<tr>
+					<th scope="row">09:30 AM</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+				</tr>
+
+				<tr>
+					<th scope="row">10:30 AM</th>
+					<td>Comm 1700</td>
+					<td>Osys 1200</td>
+					<td>Web 1000</td>
+					<td>Osys 1200</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">11:30 AM</th>
+					<!-- <td colspan="5" class="text-center table-secondary">Lunch</td> -->
+					<td>Lunch</td>
+					<td>Lunch</td>
+					<td>Lunch</td>
+					<td>Lunch</td>
+					<td>Lunch</td>
+				</tr>
+				<tr>
+					<th scope="row">12:30 AM</th>
+					<td>Comm 1700</td>
+					<td>Osys 1200</td>
+					<td>Web 1000</td>
+					<td>Osys 1200</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">01:30 PM</th>
+					<td>Dbas 1007</td>
+					<td>Netw 1700</td>
+					<td>Dbas 1007</td>
+					<td>Netw 1700</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">02:30 PM</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">03:30 PM</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">04:30 PM</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<button id="random-color-btn">Change Color</button>
+
+	<div class="card" style="width: 400px;">
+        <div class="card-body">
+            <h5 class="card-title" id="courseName">Course Name</h5>
+            This is some text within a card body.
+            <button class="btn btn-primary" id="btnEdit" data-bs-toggle="modal" data-bs-target="#editCourseModal">Edit
+                Course</button>
+        </div>
+    </div>
+	<div class="modal" id="editCourseModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Course</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="courseName">Name</label>
+                        <input type="text" class="form-control" name="courseName" id="txtCourseName"
+                            placeholder="Enter a course name" aria-describedby="courseNameHelp">
+                        <small id="courseNameHelp" class="form-text text-muted">Ex. PROG 2700.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseInstructor">Instructor</label>
+                        <input type="text" class="form-control" name="courseInstructor" id="txtCourseInstructor"
+                            placeholder="Enter course title" aria-describedby="courseInstructorHelp">
+                        <small id="courseInstructorHelp" class="form-text text-muted">Ex. Client Side Programming</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseRoom">Room</label>
+                        <input type="text" class="form-control" name="courseRoom" id="txtCourseRoom"
+                            placeholder="Enter room" aria-describedby="courseRoomHelp">
+                        <small id="courseRoomHelp" class="form-text text-muted">Ex. COG-114</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script>
+	// Get a reference to the button element
+const btn = document.getElementById('random-color-btn');
+
+// Add a click event listener to the button
+btn.addEventListener('click', () => {
+  // Generate a random color using RGB values
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+  const randomColor = `rgb(${red}, ${green}, ${blue})`;
+
+  // Set the background color of the table to the random color
+  const table = document.getElementById('monster-table');
+  table.style.backgroundColor = randomColor;
+});
+</script>
+</body>
+
+</html>
